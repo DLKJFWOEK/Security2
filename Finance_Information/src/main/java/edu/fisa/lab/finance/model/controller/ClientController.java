@@ -1,14 +1,15 @@
-package edu.fisa.lab.model.controller;
+package edu.fisa.lab.finance.model.controller;
 
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.fisa.lab.model.dto.ClientDto;
+import edu.fisa.lab.finance.model.dto.ClientDto;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -31,9 +32,10 @@ public class ClientController {
 		return "redirect:/main.jsp";
 	}
 	
+	@ExceptionHandler
 	public String exceptionHandler(Exception e, Model m) {
 		m.addAttribute("errorMsg", "발생된 이슈" + e.getMessage());
 		e.printStackTrace();
 		return "forward:showError.jsp";
-	}
+	}	
 }

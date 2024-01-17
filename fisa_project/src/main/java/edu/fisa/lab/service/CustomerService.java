@@ -44,16 +44,16 @@ public class CustomerService {
 		customerRepository.save(c.get());
 	}
 	
+	@Transactional
+	public List<DrawDto> customerDraw(Long customerId) {
+		Optional<Customer> c = customerRepository.findById(customerId);
+		return null;
+	}
+	
 	@ExceptionHandler
 	public String exceptionHandler(Exception e, Model m) {
 		m.addAttribute("errorMsg", "발생된 이슈 " + e.getMessage());
 		e.printStackTrace();
 		return "forward:showError.jsp";
-	}
-
-	@Transactional
-	public List<DrawDto> customerDraw(Long customerId) {
-		Optional<Customer> c = customerRepository.findById(customerId);
-		return null;
 	}
 }

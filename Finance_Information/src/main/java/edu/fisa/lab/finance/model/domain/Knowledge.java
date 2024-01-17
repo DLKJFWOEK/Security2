@@ -1,4 +1,4 @@
-package edu.fisa.lab.model.domain;
+package edu.fisa.lab.finance.model.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
@@ -18,8 +18,5 @@ public class Knowledge {
 	
 	@Column
 	private String content;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "c_no")
-	private Client client;
+
 }

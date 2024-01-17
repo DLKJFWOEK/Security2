@@ -1,4 +1,4 @@
-package edu.fisa.lab.model.domain;
+package edu.fisa.lab.finance.model.domain;
 
 import java.util.List;
 import jakarta.persistence.Column;
@@ -20,7 +20,4 @@ public class Client {
 	
 	@Column
 	private String password;
-	
-	@OneToMany(mappedBy = "Knowledge")
-	private List<FinanceInformation> FLList = new ArrayList<>;
 }

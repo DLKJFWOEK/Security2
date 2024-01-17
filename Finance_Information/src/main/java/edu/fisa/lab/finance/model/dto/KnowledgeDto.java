@@ -1,19 +1,18 @@
-package edu.fisa.lab.model.dto;
+package edu.fisa.lab.finance.model.dto;
 
-import edu.fisa.lab.model.domain.Category;
-import edu.fisa.lab.model.domain.Knowledge;
+import edu.fisa.lab.finance.model.domain.Category;
+import edu.fisa.lab.finance.model.domain.Knowledge;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Getter
 @Setter
-@ToString
 @Builder
 public class KnowledgeDto {
 	
@@ -28,5 +27,4 @@ public class KnowledgeDto {
 				.category(knowledgeDto.getCategory())
 				.build();
 	}
-	
 }
