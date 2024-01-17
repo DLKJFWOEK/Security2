@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.fisa.lab.finance.model.ClientService;
 import edu.fisa.lab.finance.model.dto.ClientDto;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

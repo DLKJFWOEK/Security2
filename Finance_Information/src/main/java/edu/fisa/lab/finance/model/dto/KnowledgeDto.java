@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
-@NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Getter
 @Setter
 @Builder
