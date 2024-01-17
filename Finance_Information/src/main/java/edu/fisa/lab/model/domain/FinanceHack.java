@@ -1,49 +1,43 @@
 package edu.fisa.lab.model.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.Locale.Category;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-@RequiredArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-
+@Table(name="financehack")
 @Entity
-@Table(name="customer")
-public class Customer {
-
+public class FinanceHack {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "customer_id")
-	private Long customerId;
+	@Column(name = "f_no")
+	private Long financeHackNo;
 	
 	@Column
 	private String name;
 	
 	@Column
-	private String password;
-
-	@OneToMany(mappedBy = "customer")
-	private List<Draw> drawList = new ArrayList<>();
+	private String content;
 	
-	public void addDraw(Draw d) {
-		d.setCustomer(this);
-		this.drawList.add(d);
-	}
+	private Category category;
 	
-	//== 생성 메서드 ==
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "c_no")
+	private Client client;
 }
