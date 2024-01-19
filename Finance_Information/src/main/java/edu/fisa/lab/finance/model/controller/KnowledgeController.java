@@ -4,8 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.fisa.lab.finance.model.KnowledgeService;
@@ -17,7 +16,7 @@ public class KnowledgeController {
 	@Autowired
 	private KnowledgeService knowledgeService;
 	
-	@RequestMapping(path = "/knowledgeAll", method = RequestMethod.GET)
+	@GetMapping("/knowledgeAll")
 	public ModelAndView knowledgeAll() {
 		List<KnowledgeDto> all = knowledgeService.knowledgeAll();
 		ModelAndView mv = new ModelAndView();

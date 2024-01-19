@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.PostMapping;
 import edu.fisa.lab.finance.model.ClientService;
 import edu.fisa.lab.finance.model.dto.ClientDto;
 import jakarta.servlet.ServletException;
@@ -22,15 +20,15 @@ public class ClientController {
 	@Autowired
 	private ClientService clientService;
 	
-	@RequestMapping(path = "/client", method = RequestMethod.POST)
-	public String insertClient(ClientDto clientDto, HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+	@PostMapping("/client")
+	public String insertClient(ClientDto clientDto, HttpServletRequest request)throws ServletException, IOException{
 		Long clientId = clientService.insertClient(clientDto);
 		String client = request.getParameter("name");
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("clientId", clientId);
 		session.setAttribute("name", name);
-		return "redirect:/main.jsp";
+		return "redirect:/main.html";
 	}
 	
 	@ExceptionHandler
