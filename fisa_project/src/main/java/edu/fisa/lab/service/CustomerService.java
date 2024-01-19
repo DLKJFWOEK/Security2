@@ -37,23 +37,23 @@ public class CustomerService {
 		return c.getCustomerId();
 	}
 	
-	@Transactional
-	public void insertCustomer(Long customerId, Long productId) throws Exception {
-		Optional<Customer> c = customerRepository.findById(customerId);
-		Optional<Product> p = productRepository.findById(productId);
-		customerRepository.save(c.get());
-	}
+//	@Transactional
+//	public void insertCustomer(Long customerId, Long productId) throws Exception {
+//		Optional<Customer> c = customerRepository.findById(customerId);
+//		Optional<Product> p = productRepository.findById(productId);
+//		customerRepository.save(c.get());
+//	}
 	
-	@Transactional
-	public List<DrawDto> customerDraw(Long customerId) {
-		Optional<Customer> c = customerRepository.findById(customerId);
-		return null;
-	}
+//	@Transactional
+//	public List<DrawDto> customerDraw(Long customerId) {
+//		Optional<Customer> c = customerRepository.findById(customerId);
+//		return null;
+//	}
 	
-	@ExceptionHandler
-	public String exceptionHandler(Exception e, Model m) {
-		m.addAttribute("errorMsg", "발생된 이슈 " + e.getMessage());
-		e.printStackTrace();
-		return "forward:showError.jsp";
-	}
+//	@ExceptionHandler
+//	public String exceptionHandler(Exception e, Model m) {
+//		m.addAttribute("errorMsg", "발생된 이슈 " + e.getMessage());
+//		e.printStackTrace();
+//		return "forward:showError.jsp";
+//	}
 }

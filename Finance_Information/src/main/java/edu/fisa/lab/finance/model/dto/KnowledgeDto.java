@@ -1,13 +1,13 @@
 package edu.fisa.lab.finance.model.dto;
 
-import edu.fisa.lab.finance.model.domain.Category;
-import edu.fisa.lab.finance.model.domain.Knowledge;
-import lombok.AllArgsConstructor;
+import edu.fisa.lab.finance.model.entity.Category;
+import edu.fisa.lab.finance.model.entity.Knowledge;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Builder
@@ -23,5 +23,20 @@ public class KnowledgeDto {
 				.content(knowledgeDto.getContent())
 				.category(knowledgeDto.getCategory())
 				.build();
+	}
+	
+	public KnowledgeDto toDto(Knowledge knowledge) {
+		return KnowledgeDto.builder()
+				.name(knowledge.getName())
+				.content(knowledge.getContent())
+				.category(knowledge.getCategory())
+				.build();
+	}
+	
+	public KnowledgeDto(String name, String content, Category category) {
+		super();
+		this.name = name;
+		this.content = content;
+		this.category = category;
 	}
 }

@@ -1,6 +1,6 @@
 package edu.fisa.lab.finance.model.dto;
 
-import edu.fisa.lab.finance.model.domain.Client;
+import edu.fisa.lab.finance.model.entity.Client;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -11,7 +11,6 @@ import edu.fisa.lab.finance.model.ClientService;
 import edu.fisa.lab.finance.model.dto.ClientDto;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -22,11 +21,11 @@ public class ClientController {
 	
 	@PostMapping("/client")
 	public String insertClient(ClientDto clientDto, HttpServletRequest request)throws ServletException, IOException{
-		Long clientId = clientService.insertClient(clientDto);
-		String client = request.getParameter("name");
+		Long clientNo = clientService.insertClient(clientDto);
+		String name = request.getParameter("name");
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("clientId", clientId);
+		session.setAttribute("clientNo", clientNo);
 		session.setAttribute("name", name);
 		return "redirect:/main.html";
 	}
